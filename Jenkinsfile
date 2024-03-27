@@ -8,7 +8,7 @@ node {
     }
     stage('Push image') {   
         docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-            app.push("${env.master}-${env.1}")
+            app.push("${env.master}-${env.BUILD_NUMBER}")
             app.push("${env.master}-latest")
             // signal the orchestrator that there is a new version
         }
